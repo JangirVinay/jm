@@ -99,16 +99,16 @@ class EightPuzzle:
         coords = self.find_position(0, puzzle)
         moves = self.find_possible_move(coords)
 
-        hamming = math.inf
+        manhattan = math.inf
 
         best_move = [-1, -1]
 
         for move in moves:
             puzzle = self.moved_puzzle(puzzle, move)
-            h = self.hamming_distance(puzzle)
+            h = self.manhattan_distance(puzzle)
 
-            if h < hamming:
-                hamming = h
+            if h < manhattan:
+                manhattan = h
                 best_move = move
 
             puzzle = self.backtrack(puzzle, coords)
@@ -120,7 +120,7 @@ class EightPuzzle:
 
         return moves
 
-    def hamming_distance(self, puzzle):
+    def manhattan_distance(self, puzzle):
         distance = 0
 
         for row in puzzle:
