@@ -5,9 +5,9 @@ class EightPuzzle:
     N = 3
 
     initial_state = [
-        [1, 2, 3],
-        [4, 7, 0],
-        [6, 5, 8]
+        [1, 8, 2],
+        [0, 4, 3],
+        [7, 6, 5]
     ]
 
     final_state = [
@@ -68,7 +68,7 @@ class EightPuzzle:
 
         return [-1, -1]
 
-    def moved_puzzle(self, puzzle, move):
+    def moved_puzzle(self, puzzle, move): # [1, 1]
         coords = self.find_position(0, puzzle)
 
         row, col = move[0], move[1]
@@ -98,6 +98,7 @@ class EightPuzzle:
 
         coords = self.find_position(0, puzzle)
         moves = self.find_possible_move(coords)
+        print(moves)
 
         manhattan = math.inf
 
@@ -116,6 +117,7 @@ class EightPuzzle:
         puzzle = self.moved_puzzle(puzzle, best_move)
 
         self.depth += 1
+        self.print_puzzle(puzzle)
         self.solve(puzzle)
 
         return moves

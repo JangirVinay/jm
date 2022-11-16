@@ -4,7 +4,6 @@ def check(board, i, j):
     a = i > -1 and i < size and j > -1 and j < size
 
     if (a == False): return False
-    # print(i, j)
     
     return a and board[i][j] == 0
 
